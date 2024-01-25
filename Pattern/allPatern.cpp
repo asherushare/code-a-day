@@ -195,7 +195,7 @@ void pattern14(int n) {
 
 void pattern15(int n) {
   for(int i = 1; i <= n; i++) {
-    for(int j = 'A'; j <= 'A' + i; j++) {
+    for(char j = 'A'; j <= 'A' + (n - i - 1); j++) {
       cout << j;
     }
     cout << endl;
@@ -224,7 +224,7 @@ int main() {
 
   // pattern8(n);
 
-  // pattern9(n);
+  pattern9(n);
 
   // pattern10(n);
 
@@ -236,7 +236,7 @@ int main() {
 
   // pattern14(n);
 
-  pattern15(n);
+  // pattern15(n);
 
   return 0;
 }
