@@ -1,49 +1,77 @@
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm> // Include the algorithm header for std::copy
+using namespace std;
 
-// class Student {
+class Student
+{
 
-//   private:
-//     int regNo;
-//     string name;
-//     int marks[5];
+private:
+  int regNo;
+  string name;
+  vector<int> marks;
 
-//   public:
-//     Student(int reg, const string& stude)
+public:
+  Student(int reg, const string &studentName, const vector<int> &studentMarks) : regNo(reg), name(studentName), marks(studentMarks) {}
 
-// };
+  void declareResult() const
+  {
+    int totalMarks = 0;
+    for (int mark : marks)
+    {
+      totalMarks += mark;
+    }
 
-// int main() {
+    cout << "Registration Number: " << regNo << ", Name: " << name << ", Total Marks: " << totalMarks << ", Result: ";
 
-//   int n;
-//   cout << "Enter the number of student: ";
-//   cin >> n;
+    // Assuming a passing threshold of 200 for demonstration purposes
+    if (totalMarks >= 200)
+    {
+      cout << "Pass";
+    }
+    else
+    {
+      cout << "Fail";
+    }
 
-//   Student students[n];
+    cout << endl;
+  }
+};
 
-//   for(int i = 0; i < n; i++) {
-//     int regNo;
-//     string name;
-//     int marks[5];
+int main()
+{
+  int n;
+  cout << "Enter the number of students: ";
+  cin >> n;
 
-//     cout << "Enter registration number for student " << i + 1 << ": ";
-//     cin >> regNo;
+  vector<Student> students(n);
 
-//     cout << "Enter name for student " << i + 1 << ": ";
-//     cin.ignore();
-//     getline(cin, name);
+  for (int i = 0; i < n; i++)
+  {
+    int regNo;
+    string name;
+    vector<int> marks(5);
 
-//     cout << "Enter marks for 5 subjects for student " << i + 1 << ": ";
-//     for(int j = 0; j < 5; j++) {
-//       cin >> marks[j];
-//     }
+    cout << "Enter Registration Number for student " << i + 1 << ": ";
+    cin >> regNo;
 
-//     students[i] = Student(regNo, name, marks);
-//   }
+    cout << "Enter Name for student " << i + 1 << ": ";
+    cin.ignore(); // Ignore newline left in the buffer
+    getline(cin, name);
 
-//   for(int i = 0; i < n; i++) {
-//     student[i].declareResult();
-//   }
+    cout << "Enter Marks for 5 subjects for student " << i + 1 << ": ";
+    for (int j = 0; j < 5; ++j)
+    {
+      cin >> marks[j];
+    }
 
-//   return 0;
-// }
+    students[i] = Student(regNo, name, marks);
+  }
+
+  for (int i = 0; i < n; ++i)
+  {
+    students[i].declareResult();
+  }
+
+  return 0;
+}
