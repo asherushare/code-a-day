@@ -44,8 +44,8 @@ class Queue {
       else {
         front++;
         if(front == rear) {
-          front = -1;
-          rear = -1;
+          front = 0;
+          rear = 0;
         }
       }
     }
@@ -81,9 +81,14 @@ int main() {
 
   cout << "Front element is: " << q.inFront() << endl;
 
-  // q.dequeue();
-  // q.dequeue();
-  // q.dequeue();
+  q.dequeue();
+  q.dequeue();
+  q.dequeue();
+  q.dequeue();
+
+  q.inFront();
+  q.isEmpty();
+
 
 
   return 0;

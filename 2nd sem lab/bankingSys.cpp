@@ -63,12 +63,12 @@
 //   bankingSys Banking(initialBal, rateofInt);
 
 //   int choice;
-//   do {
+//   do {a
 //     bankingSys.menu() {
 //       cout << "Enter your choice: ";
 //       cin >> choice;
 //     }
-
+// a
 //     switch(choice) {
 //       case 1: 
 //       double depoAmount;
