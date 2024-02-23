@@ -102,7 +102,6 @@ int main() {
 
   Node* head = NULL;
   insertAtHead(head, 5);
-
   display(head);
 
   // insertAtEnd(head, 2);
