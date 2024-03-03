@@ -1,71 +1,96 @@
-// #include <iostream>
-// using namespace std;
+#include <iostream>
+using namespace std;
 
-// class Stack {
-//   public:
-//   int top;
-//   int size;
-//   int* arr;
+class Stack
+{
+  int top;
+  int capacity;
+  int *arr;
 
-//   Stack(int size) {
-//     top = -1;
-//     this -> size = size;
-//     arr = new int [size];
-//   }
+public:
+  Stack(int size)
+  {
+    capacity = size;
+    top = -1;
+    arr = new int[size];
+  }
 
-//   bool isEmpty() {
-//     if(top == -1) {
-//       return true;
-//     }
-//     else {
-//       return false;
-//     }
-//   }
+  void push(int val)
+  {
+    if (top == capacity - 1)
+    {
+      cout << "Stack overflow";
+    }
+    else
+    {
+      top++;
+      arr[top] = val;
+    }
+  }
 
-//   void push(int val) {
-//     if(top == size - 1) {
-//       cout << "Stack is overflow.";
-//       return;
-//     }
-//     else {
-//       top++;
-//       arr[top] = val;
-//     }
-//   }
+  int pop()
+  {
+    if (top == -1)
+    {
+      cout << "Stack is undeflow";
+      return -1;
+    }
+    else
+    {
+      int val = arr[top];
+      top--;
+      return val;
+    }
+  }
 
-//   void pop() {
-//     if(isEmpty()) {
-//       cout << "Stack is underflow";
-//       return;
-//     }
-//     else {
-//       top--;
-//     }
-//   }
-// };
+  bool Isempty()
+  {
+    if (top == -1)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+};
 
-// void reverseArray(int arr[], int n, Stack &stack) {
-//   cout << "Enter array elements here: ";
-//   for(int i = 0; i < n; i++) {
-//     stack.push(arr[i]);
-//   }
+void reverseEle(int arr[], int size)
+{
+  Stack stack(size);
+  for (int i = 0; i < size; i++)
+  {
+    stack.push(arr[i]);
+  }
 
-//   for(int i = 0; i < n; i++) {
-//     arr[i] = stack.pop();
-//   }
-// }
+  for (int i = 0; i < size; i++)
+  {
+    arr[i] = stack.pop();
+  }
+}
 
+int main()
+{
 
-// int main() {
-//   int n;
-//   cout << "Enter the size of array: ";
-//   cin >> n;
-//   int arr[n];
-//   Stack stack(n);
+  int Size;
+  cout << "Enter the size of array: ";
+  cin >> Size;
 
-//   reverseArray(arr, n, stack);
+  int arr[Size];
+  cout << "Enter array element here: ";
+  for (int i = 0; i < Size; i++)
+  {
+    cin >> arr[i];
+  }
 
+  reverseEle(arr, Size);
 
+  cout << "Reverse elements are: ";
+  for (int i = 0; i < Size; i++)
+  {
+    cout << arr[i] << " ";
+  }
 
-//   return 0;
-// }
+  return 0;
+}
