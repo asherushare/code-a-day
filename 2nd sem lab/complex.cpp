@@ -23,15 +23,24 @@ class cArithmetic {
   }
 
   float subtraction() {
+    float sub = Real1 - Real2;
+    float sub3 = Img1 - Img2;
 
+    cout << "Subtraction is: " << sub << "-" << sub3 << "i" << endl;
   }
 
   float multiplication() {
+    float mul = Real1 * Real2;
+    float mul2 = Img1 * Img2;
 
+    cout << "Multiplication " << mul << "*" << mul2 << "i" << endl;
   }
 
   float division() {
+    float div = Real1 / Real2;
+    float div2 = Img1 / Img2;
 
+    cout << "Division is: " << div << "/" << div2 << "i" << endl;
   }
 };
 
@@ -56,6 +65,9 @@ int main() {
   cArithmetic operation(real1, img1, real2, img2);
 
   operation.addition();
+  operation.subtraction();
+  operation.multiplication();
+  operation.division();
 
   return 0;
 }
