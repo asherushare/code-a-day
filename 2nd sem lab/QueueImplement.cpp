@@ -29,12 +29,7 @@ class Queue {
       }
 
     bool isEmpty() {
-      if(front == 0 && rear == 0) {
-        return true;
-      }
-      else {
-        return false;
-      }
+      return front == 0 && rear == 0;
     }
 
     void dequeue() {
@@ -68,9 +63,7 @@ int main() {
   cin >> n;
 
   Queue q(n);
-
-  // Queue q(7);
-
+  
   q.enqueue(89);
 
   q.enqueue(2);
@@ -85,8 +78,9 @@ int main() {
   q.dequeue();
   q.dequeue();
   q.dequeue();
-
+  cout << endl;
   q.inFront();
+  cout << endl;
   q.isEmpty();
 
 
